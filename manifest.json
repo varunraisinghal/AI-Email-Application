@@ -1,0 +1,27 @@
+{
+    "name": "ChatGPT For GMail",
+    "version": "1.0",
+    "description": "This extention uses ChatGPT to help write emails for you",
+    "manifest_version": 3,
+    "author": "Varun Singhal",
+    "action": {
+        "default_popup": "index.html"
+    },
+    "content_scripts": [
+        {
+            "matches": ["https://mail.google.com/*"],
+            "js": ["gmailscript.js"]
+        },
+        {
+            "matches": ["https://chat.openai.com/*"],
+            "js": ["gptscript.js"]
+        }
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "host_permissions": [
+        "https://mail.google.com/*",
+        "https://chat.openai.com/*"
+    ]
+}
